@@ -199,3 +199,7 @@ class Store {
 	})
 }
 ```
+
+#### Flows可以取消
+
+Flow是可以取消的，这意味着您可以在返回的promise上调用`cancel()`。 这将立即停止生成器，但仍将处理任何finally子句。 返回的promise自身将拒绝其消息为`FLOW_CANCELLED`的`FlowCancellationError`实例（此错误从程序包中导出）。 还导出了一个`isFlowCancellationError(error)`的helper，当且仅当提供的参数是`FlowCancellationError`时，该方法才返回true。
